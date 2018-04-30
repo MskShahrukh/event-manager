@@ -1,1 +1,130 @@
 /* You can add global styles to this file, and also import other style files */
+
+
+@import "~bootswatch/dist/superhero/_variables.scss";
+@import "~bootstrap/scss/bootstrap.scss";
+@import "~bootswatch/dist/superhero/_bootswatch.scss";
+
+
+.centered{
+	margin:auto;
+}
+
+
+a:hover{
+	cursor:pointer;
+	text-shadow:2px 4px 5px black;
+}
+
+.rounded{
+	border-radius:140px;
+}
+.profile-img{
+	border:2px solid silver;
+}
+
+.profile-data{
+	
+}
+
+.blur{
+	margin-top:20px;
+	margin:auto;
+	transition:.4s;
+
+}
+.blur:hover{
+
+	padding:8px;
+	transition:.4s;
+	font-weight:bold;
+	text-shadow:2px 4px 5px black;
+	
+}
+
+.pull-right {
+  float: right !important;
+}
+
+.my-btn{
+	cursor:pointer;
+}
+
+.eventName{
+	 
+}
+
+.box-shadow{
+	transition:.3s;
+	
+}
+
+
+.box-shadow:hover{
+	transition:.4s;
+	font-weight:bold;
+	box-shadow:2px 8px 15px black;
+	
+}
+.text-shadow{
+	text-shadow:2px 4px 5px black;
+	
+}
+
+.long-text{
+	
+  width: 300px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.dropbtn {
+    
+    cursor: pointer;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: relative;
+    
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content .link{
+   padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+
+}
+
+.clear-all{
+	clear:both;
+}
+
+.event-box{
+	background:rgba(0,0,0,0.4);
+	padding:20px;
+}

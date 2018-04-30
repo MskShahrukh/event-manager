@@ -1,0 +1,130 @@
+<div class="text-center">
+	<div *ngIf="afAuth.authState | async as user; else showLogin">
+		<div class="text-right"><button (click)="logout()" class="btn btn-primary">Logout</button></div>
+
+    	<div class="text-center">
+    		<br>    		
+    		<div class="centered">
+	    		<div class="d-inline-block col-md-3">
+	    			<div *ngIf="  user.photoURL; else NoDp">
+	    				<img class="profile-img rounded-circle" src="{{ user.photoURL }}" width="180"/>
+	    			</div>
+	    			<ng-template #NoDp>
+	    				<img class="profile-img rounded" src="https://cdn0.iconfinder.com/data/icons/flat-design-business-set-3/24/people-customer-unknown-512.png" width="180"/>
+	    			</ng-template>
+	    			
+
+		      	</div><br>
+	    		<div class="d-inline-block col-md-3 profile-data text-center">
+	    			
+	    				
+	    				<ng-template #showEditInfoBox>
+	    					<h4>Hello {{ user.displayName }}!</h4> 
+			    			<p>{{user.email}}</p>
+				      		<div class="text-secondary my-btn" (click)="editInfo(user)"> Edit info</div>
+			    			<hr>
+				      	</ng-template>
+				      	<div *ngIf=" editInfoClicked ; else showEditInfoBox">
+				      		<br>
+				      		<div class="form-group">
+				      			<input type="text" name="username" placeholder="UserName" class="form-control" [(ngModel)]="username">
+				      		</div>
+				      		<div class="form-group">
+				      			<input type="text" name="photoURL" placeholder="display Picture url" class="form-control" [(ngModel)]="photoURL">
+				      		</div>
+				      		<button class="btn btn-secondary" (click)="UpdateUserInfo()">save</button>
+				      		<div class="text-danger my-btn" (click)="cancelProfileUpdate()">cancel</div>
+				      	</div>
+	    		</div>
+    		</div>
+		      
+
+
+	        <hr>
+
+	        <app-events-list></app-events-list>
+	       
+	        <br><br><br>
+	        <hr>
+	        
+	    </div>
+
+    </div>
+
+  
+	<!-- Email Login -->
+	<ng-template #showLogin>
+
+		<div *ngIf=" SignUpClicked ; else showLogin2">
+			<br><br><br><br><br><br>
+			<h1>Sign Up </h1><br><br>
+			<div class="col-md-5 centered">
+				<!--
+			<div class="form-group">
+				<input type="text" name="" placeholder="User name" class="form-control" required [(ngModel)]="SignUpName">
+			</div>
+			 -->
+			<div class="form-group">
+				<input type="email" name="" placeholder="Email" class="form-control" required [(ngModel)]="LoginEmail">
+			</div>
+			<div class="form-group">
+				<input type="password" name="" placeholder="Password" class="form-control" required [(ngModel)]="LoginPassword">
+			</div>
+			 <p class="text-danger"> {{errorHandler}} </p>
+			 <button type="submit" class="btn btn-primary" (click)="SignUpNow()">Sign Up</button>
+			 <br>
+			 <br>
+		<hr>
+		<div (click)="backClicked()"> <a> < Back </a></div>
+		</div>	
+
+		</div>
+
+		<ng-template #showLogin2>
+		<br><br>
+
+
+		<img src="../assets/event-manager-logo.png" width="150">
+
+		<h1>Welcome to Event Manager</h1>
+
+		<!--
+		<div class="rounded">
+			<img src="../assets/calendar-min.png" width="150">
+		<img src="../assets/event-manage-home-pic.jpg" width="300" >
+		</div>
+		-->
+		<br><br>
+
+		<div class="col-md-4 centered">
+			<div class="form-group">
+				<input type="email" name="" placeholder="Email" class="form-control" required [(ngModel)]="LoginEmail">
+			</div>
+			<div class="form-group">
+				<input type="password" name="" placeholder="Password" class="form-control" required [(ngModel)]="LoginPassword">
+			</div>
+			 <p class="text-danger"> {{errorHandler}} </p>
+			 <button type="" class="btn btn-secondary" (click)="EmailLogin()">Login</button>
+			 <br>
+
+			 <br>
+		<hr>
+			
+
+		<!-- Gmail Login -->	
+		<div class="btn btn-primary" (click)="Glogin()"> 
+			<span> <img src="../assets/google-flat.png"  width="25" /> </span> Google Login</div>
+		<hr>
+		<br>
+		</div>
+
+		<div>
+			<p>New to Event manager ?</p>
+			<h3 (click)="SignUp()" ><a >Sign Up.</a></h3>
+		</div>
+		</ng-template>
+	</ng-template>
+
+
+
+</div>					
